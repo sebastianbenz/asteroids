@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Polygon;
+import java.awt.event.KeyListener;
 import java.awt.geom.Path2D;
 import java.awt.geom.Point2D;
 import javax.swing.JFrame;
@@ -45,6 +46,21 @@ public class TriangleTest {
                     new Point2D.Double(200, 200),
                     new Point2D.Double(100, 300)
             );
+            this.setFocusable(true);
+            this.requestFocusInWindow();
+            this.addKeyListener(new KeyListener() {
+
+                @Override
+                public void keyTyped(KeyEvent e) {}
+
+                @Override
+                public void keyReleased(KeyEvent e) {}
+
+                @Override
+                public void keyPressed(KeyEvent e) {
+                    System.out.println("Pressed " + e.getKeyChar());
+                }
+            });
         }
 
         @Override
