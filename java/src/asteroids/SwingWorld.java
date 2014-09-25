@@ -11,6 +11,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.geom.Path2D;
 import java.awt.geom.Point2D;
+import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -28,7 +29,7 @@ public class SwingWorld implements World {
 
 	private WorldPanel panel;
 
-	public SwingWorld(SpaceShip spaceShip, EventListener eventListener) {
+	public SwingWorld(SpaceShip spaceShip, List<Asteroid> asteroids, EventListener eventListener) {
 		this.spaceShip = spaceShip;
 		this.eventListener = eventListener;
 		drawShip();
