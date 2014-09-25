@@ -14,6 +14,7 @@ import java.awt.geom.Point2D;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -25,14 +26,18 @@ public class SwingWorld implements World {
 	protected JFrame frame;
 	private SpaceShip spaceShip;
 
+	private WorldPanel panel;
+
 	public SwingWorld(SpaceShip spaceShip, EventListener eventListener) {
 		this.spaceShip = spaceShip;
 		this.eventListener = eventListener;
+		drawShip();
 		start();
 	}
 
 	public void start() {
 		EventQueue.invokeLater(new Runnable() {
+
 			@Override
 			public void run() {
 				try {
@@ -46,7 +51,8 @@ public class SwingWorld implements World {
 				frame = new JFrame("Asteroids");
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				frame.setLayout(new BorderLayout());
-				frame.add(new WorldPanel(eventListener));
+				panel = new WorldPanel(eventListener);
+				frame.add(panel);
 				frame.pack();
 				frame.setLocationRelativeTo(null);
 				frame.setVisible(true);
@@ -56,16 +62,24 @@ public class SwingWorld implements World {
 
 	public void drawShip() {
 		Position position = spaceShip.getPosition();
-		triangleShape = new TriangleShape(
-				new Point2D.Double(position.x, position.y), 
-				new Point2D.Double(position.x + SPACE_SHIP, position.y + SPACE_SHIP), 
-				new Point2D.Double(position.x, position.y + SPACE_SHIP));
+		triangleShape = new TriangleShape(new Point2D.Double(position.x,
+				position.y), new Point2D.Double(position.x + SPACE_SHIP,
+				position.y + SPACE_SHIP), new Point2D.Double(position.x,
+				position.y + SPACE_SHIP));
 	}
-	
-	public void render(){
-		if(frame != null){
-			System.out.println("repaint");
-			frame.repaint();
+
+	public void render() {
+		if (frame != null) {
+			SwingUtilities.invokeLater(new Runnable() {
+				@Override
+				public void run() {
+					System.out.println("repaint");
+					panel.invalidate();
+					panel.repaint();
+					frame.invalidate();
+					frame.repaint();
+				}
+			});
 		}
 	}
 
@@ -103,6 +117,7 @@ public class SwingWorld implements World {
 
 		@Override
 		protected void paintComponent(Graphics g) {
+			System.out.println("paintComponent");
 			super.paintComponent(g);
 			Graphics2D g2d = (Graphics2D) g.create();
 			g2d.setColor(Color.GREEN);

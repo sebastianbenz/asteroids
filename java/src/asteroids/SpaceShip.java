@@ -10,11 +10,16 @@ public class SpaceShip {
 	}
 
 	public void up() {
-		this.position = new Position(position.x, position.y + STEP);
+		setPosition(new Position(position.x, position.y - STEP));
+	}
+
+	private void setPosition(Position newPosition) {
+		System.out.println(position);
+		this.position = newPosition;
 	}
 
 	public void down() {
-		this.position = new Position(position.x, position.y - STEP);
+		setPosition(new Position(position.x, position.y + STEP));
 	}
 
 	public Position getPosition() {

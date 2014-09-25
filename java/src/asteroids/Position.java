@@ -33,6 +33,12 @@ public class Position {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "Spaceship [x=" + x + ", y=" + y + "]";
+	}
+	
 	
 	
 
