@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asteroids", "Asteroids\Asteroids.csproj", "{92C5261F-3A1A-41DD-9C97-D6CA8E05FFAB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asteroids.Game", "Asteroids.Game\Asteroids.Game.csproj", "{FDB0CAA6-01F5-4E54-A48D-84D71E05AED5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,12 +9,12 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{92C5261F-3A1A-41DD-9C97-D6CA8E05FFAB}.Debug|x86.ActiveCfg = Debug|x86
-		{92C5261F-3A1A-41DD-9C97-D6CA8E05FFAB}.Debug|x86.Build.0 = Debug|x86
-		{92C5261F-3A1A-41DD-9C97-D6CA8E05FFAB}.Release|x86.ActiveCfg = Release|x86
-		{92C5261F-3A1A-41DD-9C97-D6CA8E05FFAB}.Release|x86.Build.0 = Release|x86
+		{FDB0CAA6-01F5-4E54-A48D-84D71E05AED5}.Debug|x86.ActiveCfg = Debug|x86
+		{FDB0CAA6-01F5-4E54-A48D-84D71E05AED5}.Debug|x86.Build.0 = Debug|x86
+		{FDB0CAA6-01F5-4E54-A48D-84D71E05AED5}.Release|x86.ActiveCfg = Release|x86
+		{FDB0CAA6-01F5-4E54-A48D-84D71E05AED5}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Asteroids\Asteroids.csproj
+		StartupItem = Asteroids.Game\Asteroids.Game.csproj
 	EndGlobalSection
 EndGlobal
