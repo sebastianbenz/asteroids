@@ -17,19 +17,21 @@ import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-
 public class SwingWorld implements World {
-	
+
+	private static final int SPACE_SHIP = 50;
 	private EventListener eventListener;
 	private TriangleShape triangleShape;
 	protected JFrame frame;
+	private SpaceShip spaceShip;
 
-	public SwingWorld(EventListener eventListener){
+	public SwingWorld(SpaceShip spaceShip, EventListener eventListener) {
+		this.spaceShip = spaceShip;
 		this.eventListener = eventListener;
 		start();
 	}
-	
-	public void start(){
+
+	public void start() {
 		EventQueue.invokeLater(new Runnable() {
 			@Override
 			public void run() {
@@ -52,11 +54,19 @@ public class SwingWorld implements World {
 		});
 	}
 
-	@Override
-	public void moveSpaceship(Position position) {
-			triangleShape = new TriangleShape(new Point2D.Double(100, 100),
-					new Point2D.Double(200, 200), new Point2D.Double(100, 300));
+	public void drawShip() {
+		Position position = spaceShip.getPosition();
+		triangleShape = new TriangleShape(
+				new Point2D.Double(position.x, position.y), 
+				new Point2D.Double(position.x + SPACE_SHIP, position.y + SPACE_SHIP), 
+				new Point2D.Double(position.x, position.y + SPACE_SHIP));
+	}
+	
+	public void render(){
+		if(frame != null){
+			System.out.println("repaint");
 			frame.repaint();
+		}
 	}
 
 	public class WorldPanel extends JPanel {
@@ -111,6 +121,5 @@ public class SwingWorld implements World {
 			closePath();
 		}
 
-	
 	}
 }

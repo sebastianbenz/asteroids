@@ -1,22 +1,28 @@
 package asteroids;
 
 public class WorldTest {
-	
-	public static void main(String[] args) {
-		World world = new SwingWorld(new EventListener() {
-			
+
+	public static void main(String[] args) throws InterruptedException {
+		final SpaceShip spaceShip = new SpaceShip(new Position(100, 100));
+		World world = new SwingWorld(spaceShip, new EventListener() {
+
 			@Override
 			public void onUp() {
-				System.out.println("UP");
-				
+				spaceShip.up();
 			}
-			
+
 			@Override
 			public void onDown() {
-				System.out.println("DOWN");
+				spaceShip.down();
 			}
 		});
-		
+
+
+		while (true) {
+			world.render();
+			Thread.sleep(1000);
+		}
+
 	}
 
 }
