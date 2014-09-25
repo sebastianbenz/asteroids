@@ -17,7 +17,7 @@ public class Asteroid {
 	}
 
 	public void update() {
-		position = new Position(position.x + speed, position.y);
+		position = new Position(position.x - speed, position.y);
 	}
 
 }

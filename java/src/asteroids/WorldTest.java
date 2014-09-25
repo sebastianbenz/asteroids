@@ -19,7 +19,7 @@ public class WorldTest {
 			for (Asteroid asteroid: asteroids) {
 				asteroid.update();
 			}
-			Thread.sleep(1000);
+			Thread.sleep(100);
 		}
 
 	}
