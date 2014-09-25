@@ -41,9 +41,9 @@ public class TriangleTest {
 
         public TestPane() {
             triangleShape = new TriangleShape(
-                    new Point2D.Double(50, 0),
                     new Point2D.Double(100, 100),
-                    new Point2D.Double(0, 100)
+                    new Point2D.Double(200, 200),
+                    new Point2D.Double(100, 300)
             );
         }
 
